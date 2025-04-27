@@ -1,5 +1,3 @@
-import javax.print.attribute.standard.Media;
-
 public class MediaBiblioteczne {
     protected String tytul;
     protected int rokWydania;
@@ -12,35 +10,25 @@ public class MediaBiblioteczne {
     }
 
     public void wypozycz(){
-        if (dostepny == true){
+        if (dostepny){
             dostepny = false;
             System.out.println("Media zostalo wypozyczone.");
         }
-        if (dostepny == false){
-            System.out.println("Media jest niedostepne");
-        }
+        else{System.out.println("Media jest niedostepne");}
     }
 
     public void zwroc(){
-        if (dostepny == false){
+        if (!dostepny){
             dostepny = true;
             System.out.println("Media zostalo zwrocone");
         }
-        if (dostepny == true){
-            System.out.println("Media nie zostalo wypozyczone.");
-        }
+        else{System.out.println("Media nie zostalo wypozyczone.");}
     }
+
+    // test ? ifTrue : ifFalse;
 
     public void wyswietlInformacje(){
-        System.out.println(tytul + "\n" + rokWydania + "\n" + dostepny);
-    }
-}
-
-public class ksiazka extends MediaBiblioteczne {
-    private String autor;
-    private int liczbaStron;
-
-    public ksiazka(String tytul, int rokWydania, String autor, int liczbaStron) {
-        super();
+        System.out.println(tytul + " " + rokWydania);
+        System.out.println(dostepny ? "Media jest dostepne." : "Media nie jest dostepne.");
     }
 }
